@@ -1,0 +1,347 @@
+{
+  "generated_at": "2026-10-09T21:30+00:00",
+  "sample": true,
+  "assumptions": [
+    "Revenue growth per year: 8% or more is strong, below 0% is a concern",
+    "Gross margin change over the period: up 1 point or more is strong, down 3 points or more is a concern",
+    "Operating margin: 15% or more is strong, below 0% is a concern",
+    "Net margin: 10% or more is strong, below 0% is a concern",
+    "Free cash flow margin: 10% or more is strong, below 0% is a concern",
+    "Return on equity: 15% or more is strong, below 5% is a concern",
+    "Debt to equity: 1.0 or lower is strong, above 2.0 is a concern",
+    "Interest coverage (operating profit / interest): 6x or more is strong, below 2x is a concern",
+    "Current ratio: 1.5 or more is strong, below 1.0 is a concern",
+    "P/E: 20 or lower is strong, above 40 is a concern (negative earnings are flagged)",
+    "Price to sales: 3 or lower is strong, above 10 is a concern",
+    "EV/EBITDA: 12 or lower is strong, above 25 is a concern",
+    "PEG ratio: 1.5 or lower is strong, above 3 is a concern",
+    "Price to free cash flow: 20 or lower is strong, above 50 is a concern",
+    "Share count growth per year: under 0.5% is strong, above 4% is a concern (dilution)",
+    "Stock-based pay as a share of revenue: under 3% is strong, above 10% is a concern",
+    "Operating cash flow / net income: 1.0 or more is strong, below 0.5 is a concern",
+    "Insider sales per purchase in recent filings: 2 or fewer is strong, more than 10 is a concern",
+    "Beta (swings vs the market): 1.0 or lower is strong, above 1.8 is a concern",
+    "Average daily dollar volume: $5M or more is strong, below $500K is a concern (hard to trade)",
+    "Short interest as share of float: under 5% is strong, above 15% is a concern",
+    "Institutional ownership: 40% or more is strong, below 10% is a concern",
+    "Price vs 200-day average: at or above is strong, more than 15% below is a concern"
+  ],
+  "errors": {},
+  "reports": {
+    "DEMO": {
+      "name": "Demo Company Inc.",
+      "currency": "USD",
+      "exchange": "DEMO",
+      "price": 84.2,
+      "change_pct": 0.013237063778580138,
+      "summary": "Demo Company sells subscription software to mid-sized businesses. This is made-up sample data used to show how the report looks. It is not a real company.",
+      "as_of": "2026-10-09T21:30+00:00",
+      "sections": [
+        {
+          "id": "business",
+          "title": "Business",
+          "items": [
+            {
+              "label": "Sector and industry",
+              "value": "Technology / Software",
+              "status": "info",
+              "note": "Read the business summary below and confirm you can explain how it makes money in one sentence.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Market cap",
+              "value": "21.00B",
+              "status": "info",
+              "note": "Company size on the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Employees",
+              "value": "18,400",
+              "status": "info",
+              "note": "",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "growth",
+          "title": "Growth drivers",
+          "items": [
+            {
+              "label": "Revenue growth, latest year",
+              "value": "12.5%",
+              "status": "good",
+              "note": "Compared with the prior fiscal year.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Revenue growth per year (3-year)",
+              "value": "14.5%",
+              "status": "good",
+              "note": "Compound annual growth across the years available.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Gross margin trend",
+              "value": "69.4% (change +2.8 pts)",
+              "status": "good",
+              "note": "Rising margins can signal pricing power or scale.",
+              "source": "Annual income statement"
+            }
+          ]
+        },
+        {
+          "id": "profitability",
+          "title": "Profitability and cash",
+          "items": [
+            {
+              "label": "Operating margin",
+              "value": "17.8%",
+              "status": "good",
+              "note": "Profit from operations as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Net margin",
+              "value": "13.6%",
+              "status": "good",
+              "note": "Bottom-line profit as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Free cash flow margin",
+              "value": "14.7%",
+              "status": "good",
+              "note": "Free cash flow: 530.00M.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Return on equity",
+              "value": "14.8%",
+              "status": "warn",
+              "note": "How much profit is earned on shareholders' money.",
+              "source": "Annual statements"
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "title": "Balance sheet",
+          "items": [
+            {
+              "label": "Debt to equity",
+              "value": "0.29x",
+              "status": "good",
+              "note": "Total debt 950.00M vs equity 3.30B.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Net debt",
+              "value": "-50.00M",
+              "status": "good",
+              "note": "Negative means more cash than debt. Check debt maturity dates in the 10-K.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Interest coverage",
+              "value": "12.8x",
+              "status": "good",
+              "note": "Operating profit divided by interest cost.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Current ratio",
+              "value": "1.75x",
+              "status": "good",
+              "note": "Can it cover bills due within a year?",
+              "source": "Annual balance sheet"
+            }
+          ]
+        },
+        {
+          "id": "valuation",
+          "title": "Valuation",
+          "items": [
+            {
+              "label": "P/E (trailing)",
+              "value": "27.4x",
+              "status": "warn",
+              "note": "Compare with competitors and the company's own history.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "P/E (forward)",
+              "value": "23.1x",
+              "status": "warn",
+              "note": "Based on analyst earnings estimates.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to sales",
+              "value": "6.4x",
+              "status": "warn",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "EV/EBITDA",
+              "value": "17.8x",
+              "status": "warn",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "PEG ratio",
+              "value": "1.90x",
+              "status": "warn",
+              "note": "P/E relative to expected growth.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to free cash flow",
+              "value": "39.6x",
+              "status": "warn",
+              "note": "",
+              "source": "Yahoo Finance and cash flow statement"
+            }
+          ]
+        },
+        {
+          "id": "trust",
+          "title": "Trust and red flags",
+          "items": [
+            {
+              "label": "Share count change per year (3-year)",
+              "value": "1.64%",
+              "status": "warn",
+              "note": "Rising share counts dilute existing owners. Falling counts mean buybacks.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Stock-based pay vs revenue",
+              "value": "7.5%",
+              "status": "warn",
+              "note": "Heavy stock pay is a hidden cost to shareholders.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Cash conversion",
+              "value": "1.31x",
+              "status": "good",
+              "note": "Profit that does not turn into cash can point to aggressive accounting.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Insider buying and selling",
+              "value": "1 purchases, 3 sales",
+              "status": "warn",
+              "note": "Sales are common for pay reasons. Open-market purchases are the stronger signal.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Risks and competition",
+          "items": [
+            {
+              "label": "Beta",
+              "value": "1.20x",
+              "status": "warn",
+              "note": "How much the stock tends to swing compared with the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Competitors, threats, legal issues",
+              "value": "Manual check",
+              "status": "info",
+              "note": "See the manual checks below. Code cannot judge these reliably.",
+              "source": "You"
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "title": "Market behavior",
+          "items": [
+            {
+              "label": "Average daily dollar volume",
+              "value": "269.44M",
+              "status": "good",
+              "note": "Low trading volume makes it harder to buy or sell at a fair price.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Short interest (share of float)",
+              "value": "3.1%",
+              "status": "good",
+              "note": "High short interest means many investors are betting against it.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Institutional ownership",
+              "value": "71.0%",
+              "status": "good",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price vs 200-day average",
+              "value": "7.3%",
+              "status": "good",
+              "note": "Shows the longer-term trend.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "52-week range",
+              "value": "61.40 to 92.80",
+              "status": "info",
+              "note": "Current price 84.20. Be careful buying right after a spike.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Next earnings date",
+              "value": "2026-11-04",
+              "status": "info",
+              "note": "Prices often move sharply on earnings day.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        }
+      ],
+      "manual": [
+        {
+          "q": "Can you explain in one sentence how this company makes money, and who its biggest customers are?",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=DEMO&type=10-K",
+          "link_label": "Latest annual report (SEC EDGAR)"
+        },
+        {
+          "q": "Does it have a real moat: brand, switching costs, network effects, or a cost advantage?",
+          "link": "https://finance.yahoo.com/quote/DEMO/profile",
+          "link_label": "Company profile"
+        },
+        {
+          "q": "Who are the top three competitors, and is this company gaining or losing share?",
+          "link": "https://finance.yahoo.com/quote/DEMO",
+          "link_label": "Quote page"
+        },
+        {
+          "q": "Any lawsuits, regulatory probes, auditor changes, restatements, or CFO departures?",
+          "link": "https://finance.yahoo.com/quote/DEMO/news",
+          "link_label": "Recent news"
+        },
+        {
+          "q": "Has management hit its past guidance? Read the last two earnings calls.",
+          "link": "https://finance.yahoo.com/quote/DEMO/analysis",
+          "link_label": "Analyst estimates"
+        },
+        {
+          "q": "Insider purchases and sales (Form 4 filings).",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=DEMO&type=4",
+          "link_label": "Form 4 filings (SEC EDGAR)"
+        }
+      ]
+    }
+  }
+}
