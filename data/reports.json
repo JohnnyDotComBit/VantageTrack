@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T01:31+00:00",
+  "generated_at": "2026-10-10T01:36+00:00",
   "sample": false,
   "assumptions": [
     "Revenue growth per year: 8% or more is strong, below 0% is a concern",
@@ -35,7 +35,7 @@
       "price": 336.64,
       "change_pct": -0.011103930438869702,
       "summary": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and wearables, home, and accessories comprising AirPods, Apple Vision Pro, Apple TV, Apple Watch, Beats products, and HomePod, as well as Apple branded and third-party accessories. It also provides AppleCare support and cloud services; and operates various platforms, including the App Store that allows customers to discover and download application",
-      "as_of": "2026-10-10T01:31+00:00",
+      "as_of": "2026-10-10T01:36+00:00",
       "sections": [
         {
           "id": "business",
@@ -165,7 +165,7 @@
           "items": [
             {
               "label": "P/E (trailing)",
-              "value": "38.6x",
+              "value": "39.1x",
               "status": "warn",
               "note": "Compare with competitors and the company's own history.",
               "source": "Yahoo Finance"
@@ -234,7 +234,7 @@
             },
             {
               "label": "Insider buying and selling",
-              "value": "0 purchases, 34 sales",
+              "value": "0 purchases, 35 sales",
               "status": "bad",
               "note": "Sales are common for pay reasons. Open-market purchases are the stronger signal.",
               "source": "Yahoo Finance"
@@ -267,7 +267,7 @@
           "items": [
             {
               "label": "Average daily dollar volume",
-              "value": "15.22B",
+              "value": "15.28B",
               "status": "good",
               "note": "Low trading volume makes it harder to buy or sell at a fair price.",
               "source": "Yahoo Finance"
@@ -350,7 +350,7 @@
       "price": 535.07,
       "change_pct": 0.023841870610971982,
       "summary": "Microsoft Corporation, a technology company, develops and supports a portfolio of technology solutions for individuals and businesses worldwide. Its products include operating systems, server applications, business solution applications, software development tools, desktop and server management tools, and video games; and devices, such as PCs, tablets, gaming and entertainment consoles, other intelligent devices, and related accessories. The company's Productivity and Business Processes segment offers Microsoft 365 Commercial, Enterprise Mobility + Security, Power BI, Exchange, SharePoint, Mic",
-      "as_of": "2026-10-10T01:31+00:00",
+      "as_of": "2026-10-10T01:36+00:00",
       "sections": [
         {
           "id": "business",
@@ -501,7 +501,7 @@
             },
             {
               "label": "EV/EBITDA",
-              "value": "20.5x",
+              "value": "20.7x",
               "status": "warn",
               "note": "",
               "source": "Yahoo Finance"
@@ -665,7 +665,7 @@
       "price": 243.83,
       "change_pct": 0.041163158119475796,
       "summary": "Shopify Inc., a commerce technology company, provides tools to start, scale, market, and run a business of various sizes in Canada, the United States, Europe, the Middle East, Africa, the Asia Pacific, and Latin America. The Company offers Shopify platform that enables merchants to manage products and inventory, process orders and payments, fulfill and ship orders, build customer relationships, source products, leverage analytics, and reporting and access financing for running their business across all of their sales channels, including web and mobile storefronts, physical retail locations, so",
-      "as_of": "2026-10-10T01:31+00:00",
+      "as_of": "2026-10-10T01:36+00:00",
       "sections": [
         {
           "id": "business",
@@ -680,7 +680,7 @@
             },
             {
               "label": "Market cap",
-              "value": "313.72B",
+              "value": "316.41B",
               "status": "info",
               "note": "Company size on the market.",
               "source": "Yahoo Finance"
@@ -809,14 +809,14 @@
             },
             {
               "label": "Price to sales",
-              "value": "23.6x",
+              "value": "23.8x",
               "status": "bad",
               "note": "",
               "source": "Yahoo Finance"
             },
             {
               "label": "EV/EBITDA",
-              "value": "125.1x",
+              "value": "129.0x",
               "status": "bad",
               "note": "",
               "source": "Yahoo Finance"
@@ -830,7 +830,7 @@
             },
             {
               "label": "Price to free cash flow",
-              "value": "156.3x",
+              "value": "157.7x",
               "status": "bad",
               "note": "",
               "source": "Yahoo Finance and cash flow statement"
@@ -969,6 +969,321 @@
         {
           "q": "Insider purchases and sales (Form 4 filings).",
           "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=SHOP&type=4",
+          "link_label": "Form 4 filings (SEC EDGAR)"
+        }
+      ]
+    },
+    "NBIS": {
+      "name": "Nebius Group N.V.",
+      "currency": "USD",
+      "exchange": "NMS",
+      "price": 221.07,
+      "change_pct": 0.006189977697874438,
+      "summary": "Nebius Group N.V., a technology company, engages in building full-stack infrastructure to service the global AI industry in the United States, the United Kingdom, and internationally. It offers Nebius builds full-stack infrastructure for AI, including large-scale GPU clusters, cloud platforms, and tools and services for developers. The company also provides TripleTen, an edtech platform for re-skilling individuals for careers in technolgy; and Avride, which develops autonomous driving technology for self-driving cars and delivery robotics. It has a strategic alliance with NVIDIA Corporation to",
+      "as_of": "2026-10-10T01:36+00:00",
+      "sections": [
+        {
+          "id": "business",
+          "title": "Business",
+          "items": [
+            {
+              "label": "Sector and industry",
+              "value": "Communication Services / Internet Content & Information",
+              "status": "info",
+              "note": "Read the business summary below and confirm you can explain how it makes money in one sentence.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Market cap",
+              "value": "60.10B",
+              "status": "info",
+              "note": "Company size on the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Employees",
+              "value": "1,543",
+              "status": "info",
+              "note": "",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "growth",
+          "title": "Growth drivers",
+          "items": [
+            {
+              "label": "Revenue growth, latest year",
+              "value": "479.0%",
+              "status": "good",
+              "note": "Compared with the prior fiscal year.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Revenue growth per year (3-year)",
+              "value": "239.8%",
+              "status": "good",
+              "note": "Compound annual growth across the years available.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Gross margin trend",
+              "value": "68.6% (change +179.0 pts)",
+              "status": "good",
+              "note": "Rising margins can signal pricing power or scale.",
+              "source": "Annual income statement"
+            }
+          ]
+        },
+        {
+          "id": "profitability",
+          "title": "Profitability and cash",
+          "items": [
+            {
+              "label": "Operating margin",
+              "value": "-115.5%",
+              "status": "bad",
+              "note": "Profit from operations as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Net margin",
+              "value": "15.6%",
+              "status": "good",
+              "note": "Bottom-line profit as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Free cash flow margin",
+              "value": "-694.8%",
+              "status": "bad",
+              "note": "Free cash flow: -3.68B.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Return on equity",
+              "value": "1.8%",
+              "status": "bad",
+              "note": "How much profit is earned on shareholders' money.",
+              "source": "Annual statements"
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "title": "Balance sheet",
+          "items": [
+            {
+              "label": "Debt to equity",
+              "value": "1.08x",
+              "status": "warn",
+              "note": "Total debt 4.97B vs equity 4.59B.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Net debt",
+              "value": "1.29B",
+              "status": "info",
+              "note": "Negative means more cash than debt. Check debt maturity dates in the 10-K.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Interest coverage",
+              "value": "1.2x",
+              "status": "bad",
+              "note": "Operating profit divided by interest cost.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Current ratio",
+              "value": "3.08x",
+              "status": "good",
+              "note": "Can it cover bills due within a year?",
+              "source": "Annual balance sheet"
+            }
+          ]
+        },
+        {
+          "id": "valuation",
+          "title": "Valuation",
+          "items": [
+            {
+              "label": "P/E (trailing)",
+              "value": "172.7x",
+              "status": "bad",
+              "note": "Compare with competitors and the company's own history.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "P/E (forward)",
+              "value": "-62.1x",
+              "status": "good",
+              "note": "Based on analyst earnings estimates.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to sales",
+              "value": "44.4x",
+              "status": "bad",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "EV/EBITDA",
+              "value": "243.2x",
+              "status": "bad",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "PEG ratio",
+              "value": "0.51x",
+              "status": "good",
+              "note": "P/E relative to expected growth.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to free cash flow",
+              "value": "n/a",
+              "status": "na",
+              "note": "Not meaningful while free cash flow is negative.",
+              "source": "Yahoo Finance and cash flow statement"
+            }
+          ]
+        },
+        {
+          "id": "trust",
+          "title": "Trust and red flags",
+          "items": [
+            {
+              "label": "Share count change per year (3-year)",
+              "value": "-11.21%",
+              "status": "good",
+              "note": "Rising share counts dilute existing owners. Falling counts mean buybacks.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Stock-based pay vs revenue",
+              "value": "15.7%",
+              "status": "bad",
+              "note": "Heavy stock pay is a hidden cost to shareholders.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Cash conversion",
+              "value": "4.66x",
+              "status": "good",
+              "note": "Profit that does not turn into cash can point to aggressive accounting.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Insider buying and selling",
+              "value": "0 purchases, 32 sales",
+              "status": "bad",
+              "note": "Sales are common for pay reasons. Open-market purchases are the stronger signal.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Risks and competition",
+          "items": [
+            {
+              "label": "Beta",
+              "value": "1.46x",
+              "status": "warn",
+              "note": "How much the stock tends to swing compared with the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Competitors, threats, legal issues",
+              "value": "Manual check",
+              "status": "info",
+              "note": "See the manual checks below. Code cannot judge these reliably.",
+              "source": "You"
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "title": "Market behavior",
+          "items": [
+            {
+              "label": "Average daily dollar volume",
+              "value": "4.46B",
+              "status": "good",
+              "note": "Low trading volume makes it harder to buy or sell at a fair price.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Short interest (share of float)",
+              "value": "19.8%",
+              "status": "bad",
+              "note": "High short interest means many investors are betting against it.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Institutional ownership",
+              "value": "69.8%",
+              "status": "good",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price vs 200-day average",
+              "value": "29.4%",
+              "status": "good",
+              "note": "Shows the longer-term trend.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "52-week range",
+              "value": "73.52 to 299.86",
+              "status": "info",
+              "note": "Current price 221.07. Be careful buying right after a spike.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Next earnings date",
+              "value": "2026-11-10",
+              "status": "info",
+              "note": "Prices often move sharply on earnings day.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        }
+      ],
+      "manual": [
+        {
+          "q": "Can you explain in one sentence how this company makes money, and who its biggest customers are?",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=NBIS&type=10-K",
+          "link_label": "Latest annual report (SEC EDGAR)"
+        },
+        {
+          "q": "Does it have a real moat: brand, switching costs, network effects, or a cost advantage?",
+          "link": "https://finance.yahoo.com/quote/NBIS/profile",
+          "link_label": "Company profile"
+        },
+        {
+          "q": "Who are the top three competitors, and is this company gaining or losing share?",
+          "link": "https://finance.yahoo.com/quote/NBIS",
+          "link_label": "Quote page"
+        },
+        {
+          "q": "Any lawsuits, regulatory probes, auditor changes, restatements, or CFO departures?",
+          "link": "https://finance.yahoo.com/quote/NBIS/news",
+          "link_label": "Recent news"
+        },
+        {
+          "q": "Has management hit its past guidance? Read the last two earnings calls.",
+          "link": "https://finance.yahoo.com/quote/NBIS/analysis",
+          "link_label": "Analyst estimates"
+        },
+        {
+          "q": "Insider purchases and sales (Form 4 filings).",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=NBIS&type=4",
           "link_label": "Form 4 filings (SEC EDGAR)"
         }
       ]
