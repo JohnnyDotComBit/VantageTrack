@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vantage: a full stock checklist in one report</title>
+<meta name="description" content="Type a ticker and read a scored due-diligence report built from public financial data. For research only.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #07080b;
+    --panel: #0d0f14;
+    --panel-2: #12151b;
+    --line: #1e222b;
+    --text: #ece7dc;
+    --muted: #8f8c84;
+    --amber: #e8b04a;
+    --good: #6fbf9a;
+    --warn: #e8b04a;
+    --bad: #d9674f;
+    --info: #8f8c84;
+    --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--ink); color: var(--text);
+    font-family: var(--body); font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums;
+  }
+  a { color: var(--amber); text-underline-offset: 3px; }
+  a:hover { color: #f4c978; }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 2px; }
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: .07; mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .wrap { width: min(1040px, 100% - 40px); margin-inline: auto; }
+
+  /* Top bar */
+  .bar {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px clamp(20px, 5vw, 56px);
+  }
+  .brand { font-family: var(--display); font-size: 28px; font-weight: 600; letter-spacing: .02em; color: var(--text); text-decoration: none; }
+  .bar nav { display: flex; gap: 26px; }
+  .bar nav a { color: var(--muted); text-decoration: none; font-size: 15px; white-space: nowrap; }
+  .bar nav a:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { position: relative; min-height: 100svh; display: grid; align-items: center; overflow: hidden; isolation: isolate; }
+  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+  .hero::before, .hero::after {
+    content: ""; position: absolute; left: 0; right: 0; height: clamp(34px, 7vh, 80px); background: #000; z-index: 2;
+  }
+  .hero::before { top: 0; border-bottom: 1px solid var(--line); }
+  .hero::after { bottom: 0; border-top: 1px solid var(--line); }
+  .vignette { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(7,8,11,.96) 0%, rgba(7,8,11,.86) 34%, rgba(7,8,11,.35) 62%, rgba(7,8,11,0) 80%),
+      radial-gradient(ellipse at 50% 55%, transparent 35%, rgba(0,0,0,.7) 100%); }
+  @media (max-width: 760px) {
+    .vignette { background: linear-gradient(180deg, rgba(7,8,11,.9) 0%, rgba(7,8,11,.82) 60%, rgba(7,8,11,.5) 100%); }
+  }
+  .hero-inner { position: relative; z-index: 3; padding: 14vh 0 12vh; }
+  h1 {
+    font-family: var(--display); font-weight: 500; font-size: clamp(44px, 8vw, 104px);
+    line-height: .98; letter-spacing: -.01em; margin: 0 0 22px; max-width: 12ch;
+  }
+  .lede { max-width: 46ch; color: #c9c4b8; font-size: clamp(17px, 2vw, 20px); margin: 0 0 34px; }
+  .search { display: flex; gap: 10px; flex-wrap: wrap; max-width: 560px; }
+  .search input {
+    flex: 1 1 220px; min-width: 0; background: rgba(13,15,20,.85); color: var(--text);
+    border: 1px solid #2a2f3a; border-radius: 3px; padding: 15px 18px; font: inherit; font-size: 18px;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+  .search input::placeholder { color: #6d6b65; text-transform: none; letter-spacing: 0; }
+  .btn {
+    background: var(--amber); color: #1a1405; border: 0; border-radius: 3px; padding: 15px 24px;
+    font: inherit; font-weight: 600; cursor: pointer;
+  }
+  .btn:hover { background: #f4c978; }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid #2f3541; font-weight: 500; padding: 10px 16px; }
+  .btn.ghost:hover { border-color: var(--amber); color: var(--amber); }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; min-height: 36px; }
+  .chip { background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 14px; cursor: pointer; }
+  .chip:hover { color: var(--text); border-color: #3a4150; }
+  .msg { margin-top: 14px; color: var(--amber); min-height: 1.6em; font-size: 15px; max-width: 56ch; }
+
+  /* Notice */
+  .notice { background: #17130a; border-bottom: 1px solid #3a2e12; color: #e8d6a8; padding: 12px 0; font-size: 15px; }
+  .notice[hidden] { display: none; }
+
+  /* Report */
+  #report { padding: 72px 0 40px; border-top: 1px solid var(--line); background: linear-gradient(#07080b, #090b10); }
+  #report[hidden] { display: none; }
+  .rhead { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 8px; }
+  .rhead h2 { font-family: var(--display); font-weight: 500; font-size: clamp(34px, 5vw, 56px); line-height: 1.05; margin: 0; }
+  .rhead .sym { color: var(--muted); font-size: 17px; margin-top: 6px; }
+  .price { font-family: var(--display); font-size: clamp(34px, 5vw, 52px); line-height: 1; text-align: right; }
+  .price small { display: block; font-family: var(--body); font-size: 15px; margin-top: 8px; }
+  .up { color: var(--good); } .down { color: var(--bad); }
+  .asof { color: var(--muted); font-size: 14px; margin: 14px 0 26px; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+  .about { max-width: 68ch; color: #c9c4b8; margin: 0 0 44px; font-family: var(--display); font-size: 21px; line-height: 1.5; }
+
+  .score { display: grid; gap: 10px; margin: 0 0 48px; padding: 0; list-style: none; }
+  .score li { display: grid; grid-template-columns: minmax(130px, 220px) 1fr auto; gap: 18px; align-items: center; font-size: 15px; }
+  .score a { color: var(--text); text-decoration: none; }
+  .score a:hover { color: var(--amber); }
+  .seg { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--line); gap: 2px; }
+  .seg i { display: block; height: 100%; }
+  .seg .g { background: var(--good); } .seg .w { background: var(--warn); } .seg .b { background: var(--bad); } .seg .n { background: #3a3f4a; }
+  .score .counts { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 48px; }
+  .two h3, .manual h3 { font-family: var(--display); font-weight: 500; font-size: 28px; margin: 0 0 12px; }
+  .two ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .two li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 16px; }
+  .two li b { display: block; font-weight: 500; }
+  .two li span { color: var(--muted); font-size: 14px; }
+  .empty { color: var(--muted); padding: 12px 0; border-top: 1px solid var(--line); }
+
+  details.sec { border-top: 1px solid var(--line); }
+  details.sec:last-of-type { border-bottom: 1px solid var(--line); }
+  details.sec summary {
+    cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: baseline;
+    padding: 22px 0; font-family: var(--display); font-size: 30px; font-weight: 500;
+  }
+  details.sec summary::-webkit-details-marker { display: none; }
+  details.sec summary::after { content: "+"; font-family: var(--body); color: var(--muted); font-size: 24px; }
+  details.sec[open] summary::after { content: "–"; }
+  details.sec summary .sc { font-family: var(--body); font-size: 14px; color: var(--muted); margin-left: auto; margin-right: 18px; }
+  .rows { padding: 0 0 20px; }
+  .row { display: grid; grid-template-columns: 110px minmax(0, 1.1fr) minmax(0, 1.6fr); gap: 8px 22px; padding: 14px 0; border-top: 1px solid #161a21; align-items: baseline; }
+  .row:first-child { border-top: 0; }
+  .st { font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+  .st::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
+  .st.good { color: var(--good); } .st.warn { color: var(--warn); } .st.bad { color: var(--bad); } .st.info, .st.na { color: var(--info); }
+  .st.na::before, .st.info::before { background: transparent; border: 1px solid currentColor; }
+  .lab { font-weight: 500; }
+  .val { font-size: 20px; font-variant-numeric: tabular-nums; }
+  .note { color: var(--muted); font-size: 14.5px; margin-top: 2px; }
+  .src { color: #6a6862; font-size: 13px; }
+
+  .manual { margin-top: 56px; }
+  .manual ol { padding-left: 22px; margin: 0; display: grid; gap: 14px; }
+  .manual li::marker { color: var(--muted); }
+  .manual p { margin: 0 0 2px; }
+  .manual a { font-size: 15px; }
+
+  /* How it works + assumptions */
+  .how { padding: 96px 0; border-top: 1px solid var(--line); }
+  .how h2, .assume h2 { font-family: var(--display); font-weight: 500; font-size: clamp(34px, 5vw, 54px); margin: 0 0 36px; line-height: 1.05; max-width: 16ch; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .steps h3 { font-family: var(--display); font-size: 26px; font-weight: 500; margin: 0 0 8px; }
+  .steps p { margin: 0; color: #b9b4a8; }
+  #watchlist { padding: 56px 0; border-top: 1px solid var(--line); }
+  #watchlist[hidden] { display: none; }
+  #watchlist h2 { font-family: var(--display); font-weight: 500; font-size: 36px; margin: 0 0 20px; }
+  .wl { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .wl button { text-align: left; background: var(--panel); border: 1px solid var(--line); color: var(--text); padding: 16px; border-radius: 3px; cursor: pointer; font: inherit; }
+  .wl button:hover { border-color: var(--amber); }
+  .wl b { display: block; font-family: var(--display); font-size: 24px; font-weight: 500; }
+  .wl span { color: var(--muted); font-size: 14px; }
+  .assume { padding: 24px 0 96px; }
+  .assume details { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; }
+  .assume summary { cursor: pointer; font-size: 18px; }
+  .assume ul { color: #b9b4a8; padding-left: 20px; margin: 16px 0 0; display: grid; gap: 6px; font-size: 15.5px; }
+  footer { border-top: 1px solid var(--line); padding: 36px 0 60px; color: var(--muted); font-size: 14.5px; }
+  footer p { max-width: 70ch; margin: 0 0 8px; }
+
+  @media (max-width: 760px) {
+    .bar nav { gap: 16px; }
+    .two, .steps { grid-template-columns: 1fr; }
+    .score li { grid-template-columns: 1fr; gap: 6px; }
+    .row { grid-template-columns: 1fr; gap: 4px; }
+    .price { text-align: left; }
+    .hero-inner { padding-top: 18vh; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<section class="hero" id="top">
+  <canvas id="line" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <header class="bar">
+    <a class="brand" href="#top">Vantage</a>
+    <nav aria-label="Main">
+      <a href="#report-anchor" id="navReport">Report</a>
+      <a href="#watchlist" id="navWatch">Watchlist</a>
+      <a href="#assumptions">Rules</a>
+    </nav>
+  </header>
+  <div class="wrap hero-inner">
+    <h1>See the whole story before you invest.</h1>
+    <p class="lede">Type a ticker. Read a plain, scored checklist covering growth, cash, debt, valuation, and the warning signs most people miss.</p>
+    <form class="search" id="searchForm" autocomplete="off">
+      <label for="tickerInput" class="sr" style="position:absolute;left:-9999px">Stock ticker</label>
+      <input id="tickerInput" list="tickerList" placeholder="Enter a ticker, like AAPL" maxlength="12" inputmode="text" autocapitalize="characters" spellcheck="false">
+      <datalist id="tickerList"></datalist>
+      <button class="btn" type="submit">Open report</button>
+    </form>
+    <div class="chips" id="chips" aria-label="Available reports"></div>
+    <div class="msg" id="msg" role="status" aria-live="polite"></div>
+  </div>
+</section>
+
+<div class="notice" id="notice" hidden><div class="wrap" id="noticeText"></div></div>
+
+<span id="report-anchor"></span>
+<section id="report" hidden aria-live="polite"></section>
+
+<section id="watchlist" hidden>
+  <div class="wrap">
+    <h2>Your watchlist</h2>
+    <div class="wl" id="wl"></div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <h2>Every number is calculated, then shown with its source.</h2>
+    <div class="steps">
+      <div><h3>Data is pulled on a schedule</h3><p>A script collects public financial data for your list of tickers each weekday after the market closes.</p></div>
+      <div><h3>Code scores each item</h3><p>Growth, margins, debt, dilution, valuation, and insider activity are measured against thresholds you can read and change.</p></div>
+      <div><h3>You judge the rest</h3><p>Moat, management, and competition cannot be scored by code, so each report lists them as questions with links to check.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="assume" id="assumptions">
+  <div class="wrap">
+    <details>
+      <summary>See the rules behind every rating</summary>
+      <ul id="rules"></ul>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Vantage is a research tool for learning and education. It does not give financial advice, price targets, or buy and sell recommendations.</p>
+    <p>Data comes from public sources that can be delayed, incomplete, or wrong. Check important facts against the company's own filings before you act.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var DATA = null;
+  var STATUS_LABEL = { good: "Strong", warn: "Watch", bad: "Concern", info: "Info", na: "No data" };
+
+  function esc(v) {
+    return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function safeUrl(u) { return /^https:\/\//.test(u || "") ? u : "#"; }
+
+  /* ---------- watchlist storage (per browser) ---------- */
+  function getWatch() { try { return JSON.parse(localStorage.getItem("vantage:watch") || "[]"); } catch (e) { return []; } }
+  function setWatch(a) { try { localStorage.setItem("vantage:watch", JSON.stringify(a)); } catch (e) {} }
+
+  /* ---------- load data ---------- */
+  function loadData() {
+    var urls = ["data/reports.json", "data/sample.json"];
+    var i = 0;
+    function next() {
+      if (i >= urls.length) return Promise.resolve(null);
+      var u = urls[i++];
+      return fetch(u, { cache: "no-store" })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) { return j && j.reports && Object.keys(j.reports).length ? j : next(); })
+        .catch(next);
+    }
+    return next();
+  }
+
+  /* ---------- scoring helpers ---------- */
+  function counts(sec) {
+    var c = { good: 0, warn: 0, bad: 0, na: 0 };
+    sec.items.forEach(function (it) { if (it.status === "good") c.good++; else if (it.status === "warn") c.warn++; else if (it.status === "bad") c.bad++; else if (it.status === "na") c.na++; });
+    return c;
+  }
+  function totals(rep) {
+    var t = { good: 0, warn: 0, bad: 0, na: 0 };
+    rep.sections.forEach(function (s) { var c = counts(s); for (var k in t) t[k] += c[k]; });
+    return t;
+  }
+  function pctFmt(x) { return x == null ? "" : (x >= 0 ? "+" : "") + (x * 100).toFixed(2) + "%"; }
+
+  /* ---------- render ---------- */
+  function renderChips() {
+    var syms = Object.keys(DATA.reports);
+    $("#chips").innerHTML = syms.map(function (s) { return '<button type="button" class="chip" data-sym="' + esc(s) + '">' + esc(s) + "</button>"; }).join("");
+    $("#tickerList").innerHTML = syms.map(function (s) { return '<option value="' + esc(s) + '">'; }).join("");
+    var rules = (DATA.assumptions || []).map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("");
+    $("#rules").innerHTML = rules || "<li>No rules were included in this data file.</li>";
+  }
+
+  function renderNotice() {
+    var n = $("#notice"), msgs = [];
+    if (DATA.sample) msgs.push("You are looking at sample data for a made-up company. Your real reports appear after the first scheduled run: open the Actions tab on GitHub, choose Update reports, and select Run workflow.");
+    if (DATA.generated_at) {
+      var age = (Date.now() - new Date(DATA.generated_at).getTime()) / 864e5;
+      if (!DATA.sample && age > 4) msgs.push("These reports were last updated " + Math.floor(age) + " days ago. Check that the scheduled workflow is still running.");
+    }
+    if (DATA.errors && Object.keys(DATA.errors).length) msgs.push("Some tickers could not be loaded last run: " + Object.keys(DATA.errors).join(", ") + ".");
+    n.hidden = !msgs.length;
+    $("#noticeText").innerHTML = msgs.map(esc).join("<br>");
+  }
+
+  function renderWatchlist() {
+    var w = getWatch().filter(function (s) { return DATA.reports[s]; });
+    $("#watchlist").hidden = !w.length;
+    $("#wl").innerHTML = w.map(function (s) {
+      var r = DATA.reports[s], t = totals(r);
+      return '<button type="button" data-sym="' + esc(s) + '"><b>' + esc(s) + "</b><span>" + esc(r.name) + "</span><br><span>" +
+        t.good + " strong, " + t.warn + " watch, " + t.bad + " concern</span></button>";
+    }).join("");
+  }
+
+  function itemRow(it) {
+    return '<div class="row"><div><span class="st ' + esc(it.status) + '">' + STATUS_LABEL[it.status] + '</span></div>' +
+      '<div><div class="lab">' + esc(it.label) + '</div><div class="src">' + esc(it.source) + '</div></div>' +
+      '<div><div class="val">' + esc(it.value) + '</div>' + (it.note ? '<div class="note">' + esc(it.note) + '</div>' : "") + "</div></div>";
+  }
+
+  function listFor(rep, status, limit) {
+    var out = [];
+    rep.sections.forEach(function (s) { s.items.forEach(function (it) { if (it.status === status && out.length < limit) out.push({ s: s.title, it: it }); }); });
+    return out;
+  }
+  function liHtml(x) { return "<li><b>" + esc(x.it.label) + ": " + esc(x.it.value) + "</b><span>" + esc(x.s) + ". " + esc(x.it.note) + "</span></li>"; }
+
+  function buildPrompt(sym, rep) {
+    var lines = ["I am researching " + rep.name + " (" + sym + "). Below is a scored checklist built from data as of " + rep.as_of + ".",
+      "Please explain the strengths, the concerns, and what I should still verify. Use only this data and say when something is missing. Do not give buy, sell, or hold advice or price targets.", ""];
+    rep.sections.forEach(function (s) {
+      lines.push(s.title + ":");
+      s.items.forEach(function (it) { lines.push("- " + it.label + ": " + it.value + " [" + STATUS_LABEL[it.status] + "] " + (it.note || "")); });
+      lines.push("");
+    });
+    lines.push("Manual checks I still need to do:");
+    rep.manual.forEach(function (m) { lines.push("- " + m.q); });
+    return lines.join("\n");
+  }
+
+  function openReport(sym, scroll) {
+    var rep = DATA.reports[sym];
+    var msg = $("#msg");
+    if (!rep) { return; }
+    msg.textContent = "";
+    var t = totals(rep), watched = getWatch().indexOf(sym) > -1;
+    var chg = rep.change_pct, cls = chg == null ? "" : (chg >= 0 ? "up" : "down");
+    var html = '<div class="wrap">' +
+      '<div class="rhead"><div><h2>' + esc(rep.name) + '</h2><div class="sym">' + esc(sym) + (rep.exchange ? " on " + esc(rep.exchange) : "") + '</div></div>' +
+      '<div class="price">' + (rep.price != null ? esc(rep.price.toFixed(2)) + " " + esc(rep.currency) : "Price n/a") + '<small class="' + cls + '">' + (chg == null ? "" : esc(pctFmt(chg)) + " today") + '</small></div></div>' +
+      '<div class="asof">Data as of ' + esc(new Date(rep.as_of).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" })) + '. Prices may be delayed.</div>' +
+      '<div class="actions"><button class="btn ghost" id="watchBtn" type="button" aria-pressed="' + watched + '">' + (watched ? "Remove from watchlist" : "Add to watchlist") + '</button>' +
+      '<button class="btn ghost" id="copyBtn" type="button">Copy checklist for an AI chat</button>' +
+      '<button class="btn ghost" id="printBtn" type="button">Print or save as PDF</button></div>' +
+      (rep.summary ? '<p class="about">' + esc(rep.summary) + (rep.summary.length >= 600 ? "…" : "") + "</p>" : "") +
+      '<ul class="score" aria-label="Score by category">' +
+      rep.sections.map(function (s) {
+        var c = counts(s), tot = (c.good + c.warn + c.bad + c.na) || 1;
+        function w(n) { return (n / tot * 100).toFixed(1) + "%"; }
+        return '<li><a href="#sec-' + esc(s.id) + '">' + esc(s.title) + '</a><div class="seg" role="img" aria-label="' + c.good + " strong, " + c.warn + " watch, " + c.bad + " concern, " + c.na + ' no data">' +
+          '<i class="g" style="width:' + w(c.good) + '"></i><i class="w" style="width:' + w(c.warn) + '"></i><i class="b" style="width:' + w(c.bad) + '"></i><i class="n" style="width:' + w(c.na) + '"></i></div>' +
+          '<div class="counts">' + c.good + " strong, " + c.warn + " watch, " + c.bad + " concern</div></li>";
+      }).join("") + "</ul>" +
+      '<div class="two"><div><h3>What looks strong</h3><ul>' + (listFor(rep, "good", 4).map(liHtml).join("") || '<li class="empty">Nothing scored as strong.</li>') + '</ul></div>' +
+      '<div><h3>What needs a closer look</h3><ul>' + (listFor(rep, "bad", 4).concat(listFor(rep, "warn", 2)).map(liHtml).join("") || '<li class="empty">Nothing scored as a concern.</li>') + "</ul></div></div>" +
+      rep.sections.map(function (s) {
+        var c = counts(s);
+        return '<details class="sec" id="sec-' + esc(s.id) + '" open><summary>' + esc(s.title) + '<span class="sc">' + c.good + " strong, " + c.warn + " watch, " + c.bad + " concern</span></summary><div class=\"rows\">" + s.items.map(itemRow).join("") + "</div></details>";
+      }).join("") +
+      '<div class="manual"><h3>Questions only you can answer</h3><ol>' + rep.manual.map(function (m) {
+        return "<li><p>" + esc(m.q) + '</p><a href="' + esc(safeUrl(m.link)) + '" target="_blank" rel="noopener noreferrer">' + esc(m.link_label) + "</a></li>";
+      }).join("") + "</ol></div></div>";
+    var sec = $("#report");
+    sec.innerHTML = html;
+    sec.hidden = false;
+    if (location.hash !== "#/" + sym) history.replaceState(null, "", "#/" + sym);
+
+    $("#watchBtn").onclick = function () {
+      var w = getWatch(), i = w.indexOf(sym);
+      if (i > -1) w.splice(i, 1); else w.push(sym);
+      setWatch(w); renderWatchlist(); openReport(sym, false);
+    };
+    $("#copyBtn").onclick = function () {
+      var btn = this, text = buildPrompt(sym, rep);
+      (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function () { btn.textContent = "Copied. Paste it into a chat."; })
+        .catch(function () { btn.textContent = "Copy failed. Select the page text instead."; });
+    };
+    $("#printBtn").onclick = function () { window.print(); };
+    if (scroll !== false) sec.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+  }
+
+  function findSymbol(raw) {
+    var s = raw.trim().toUpperCase();
+    if (!s) return null;
+    var keys = Object.keys(DATA.reports);
+    if (keys.indexOf(s) > -1) return s;
+    var hit = keys.filter(function (k) { return k.split(".")[0] === s; });
+    return hit.length ? hit[0] : null;
+  }
+
+  /* ---------- events ---------- */
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-sym]");
+    if (b && DATA) { $("#tickerInput").value = b.getAttribute("data-sym"); openReport(b.getAttribute("data-sym")); }
+  });
+  $("#searchForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!DATA) { $("#msg").textContent = "Report data could not be loaded. If you opened this file directly, serve it through GitHub Pages or a local web server."; return; }
+    var raw = $("#tickerInput").value, sym = findSymbol(raw);
+    if (sym) return openReport(sym);
+    $("#msg").textContent = raw.trim()
+      ? "There is no report for " + raw.trim().toUpperCase() + " yet. Add it to tickers.json (Canadian stocks end in .TO), and it will be included in the next update."
+      : "Enter a ticker to open its report.";
+  });
+  window.addEventListener("hashchange", function () {
+    var m = location.hash.match(/^#\/(.+)$/);
+    if (m && DATA && DATA.reports[decodeURIComponent(m[1])]) openReport(decodeURIComponent(m[1]));
+  });
+  $("#navReport").addEventListener("click", function (e) {
+    if ($("#report").hidden) { e.preventDefault(); $("#tickerInput").focus(); window.scrollTo({ top: 0 }); }
+  });
+
+  /* ---------- hero line: a price chart that draws itself once ---------- */
+  function heroLine() {
+    var cv = $("#line"), ctx = cv.getContext("2d"), reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var pts = [], W, H, dpr, start = null, DURATION = 4200;
+    function seed() {
+      var s = 7, rnd = function () { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
+      var y = 0, n = 180; pts = [];
+      for (var i = 0; i < n; i++) { y += (rnd() - 0.46) * 1.4 + Math.sin(i / 22) * 0.12; pts.push(y); }
+      var min = Math.min.apply(null, pts), max = Math.max.apply(null, pts);
+      pts = pts.map(function (v) { return (v - min) / (max - min); });
+    }
+    function size() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = cv.clientWidth; H = cv.clientHeight;
+      cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function xy(i) { return [W * 0.04 + (W * 0.92) * i / (pts.length - 1), H * 0.86 - pts[i] * H * 0.55]; }
+    function draw(p) {
+      ctx.clearRect(0, 0, W, H);
+      var upto = Math.max(1, Math.floor(p * (pts.length - 1)));
+      // faint grid lines like a film frame guide
+      ctx.strokeStyle = "rgba(236,231,220,.05)"; ctx.lineWidth = 1;
+      for (var g = 1; g < 4; g++) { ctx.beginPath(); ctx.moveTo(0, H * g / 4); ctx.lineTo(W, H * g / 4); ctx.stroke(); }
+      // area
+      var first = xy(0), lastp = xy(upto);
+      var grad = ctx.createLinearGradient(0, H * 0.3, 0, H);
+      grad.addColorStop(0, "rgba(232,176,74,.18)"); grad.addColorStop(1, "rgba(232,176,74,0)");
+      ctx.beginPath(); ctx.moveTo(first[0], H);
+      for (var i = 0; i <= upto; i++) { var q = xy(i); ctx.lineTo(q[0], q[1]); }
+      ctx.lineTo(lastp[0], H); ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+      // line
+      ctx.beginPath();
+      for (var j = 0; j <= upto; j++) { var r = xy(j); if (j === 0) ctx.moveTo(r[0], r[1]); else ctx.lineTo(r[0], r[1]); }
+      ctx.strokeStyle = "#e8b04a"; ctx.lineWidth = 2; ctx.shadowColor = "rgba(232,176,74,.55)"; ctx.shadowBlur = 14; ctx.stroke(); ctx.shadowBlur = 0;
+      // leading point
+      ctx.beginPath(); ctx.arc(lastp[0], lastp[1], 4, 0, 7); ctx.fillStyle = "#f4c978"; ctx.fill();
+    }
+    function frame(t) {
+      if (start === null) start = t;
+      var p = Math.min((t - start) / DURATION, 1), eased = 1 - Math.pow(1 - p, 3);
+      draw(eased);
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    seed(); size();
+    window.addEventListener("resize", function () { size(); draw(1); });
+    if (reduce) draw(1); else requestAnimationFrame(frame);
+  }
+
+  /* ---------- start ---------- */
+  heroLine();
+  loadData().then(function (d) {
+    DATA = d;
+    if (!d) { $("#msg").textContent = "Report data could not be loaded. If you opened this file directly, serve it through GitHub Pages or a local web server."; return; }
+    renderChips(); renderNotice(); renderWatchlist();
+    var m = location.hash.match(/^#\/(.+)$/);
+    if (m && d.reports[decodeURIComponent(m[1])]) openReport(decodeURIComponent(m[1]), false);
+  });
+})();
+</script>
+</body>
+</html>
