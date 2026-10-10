@@ -1,0 +1,977 @@
+{
+  "generated_at": "2026-10-10T01:31+00:00",
+  "sample": false,
+  "assumptions": [
+    "Revenue growth per year: 8% or more is strong, below 0% is a concern",
+    "Gross margin change over the period: up 1 point or more is strong, down 3 points or more is a concern",
+    "Operating margin: 15% or more is strong, below 0% is a concern",
+    "Net margin: 10% or more is strong, below 0% is a concern",
+    "Free cash flow margin: 10% or more is strong, below 0% is a concern",
+    "Return on equity: 15% or more is strong, below 5% is a concern",
+    "Debt to equity: 1.0 or lower is strong, above 2.0 is a concern",
+    "Interest coverage (operating profit / interest): 6x or more is strong, below 2x is a concern",
+    "Current ratio: 1.5 or more is strong, below 1.0 is a concern",
+    "P/E: 20 or lower is strong, above 40 is a concern (negative earnings are flagged)",
+    "Price to sales: 3 or lower is strong, above 10 is a concern",
+    "EV/EBITDA: 12 or lower is strong, above 25 is a concern",
+    "PEG ratio: 1.5 or lower is strong, above 3 is a concern",
+    "Price to free cash flow: 20 or lower is strong, above 50 is a concern",
+    "Share count growth per year: under 0.5% is strong, above 4% is a concern (dilution)",
+    "Stock-based pay as a share of revenue: under 3% is strong, above 10% is a concern",
+    "Operating cash flow / net income: 1.0 or more is strong, below 0.5 is a concern",
+    "Insider sales per purchase in recent filings: 2 or fewer is strong, more than 10 is a concern",
+    "Beta (swings vs the market): 1.0 or lower is strong, above 1.8 is a concern",
+    "Average daily dollar volume: $5M or more is strong, below $500K is a concern (hard to trade)",
+    "Short interest as share of float: under 5% is strong, above 15% is a concern",
+    "Institutional ownership: 40% or more is strong, below 10% is a concern",
+    "Price vs 200-day average: at or above is strong, more than 15% below is a concern"
+  ],
+  "errors": {},
+  "reports": {
+    "AAPL": {
+      "name": "Apple Inc.",
+      "currency": "USD",
+      "exchange": "NMS",
+      "price": 336.64,
+      "change_pct": -0.011103930438869702,
+      "summary": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and wearables, home, and accessories comprising AirPods, Apple Vision Pro, Apple TV, Apple Watch, Beats products, and HomePod, as well as Apple branded and third-party accessories. It also provides AppleCare support and cloud services; and operates various platforms, including the App Store that allows customers to discover and download application",
+      "as_of": "2026-10-10T01:31+00:00",
+      "sections": [
+        {
+          "id": "business",
+          "title": "Business",
+          "items": [
+            {
+              "label": "Sector and industry",
+              "value": "Technology / Consumer Electronics",
+              "status": "info",
+              "note": "Read the business summary below and confirm you can explain how it makes money in one sentence.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Market cap",
+              "value": "4.91T",
+              "status": "info",
+              "note": "Company size on the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Employees",
+              "value": "150,000",
+              "status": "info",
+              "note": "",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "growth",
+          "title": "Growth drivers",
+          "items": [
+            {
+              "label": "Revenue growth, latest year",
+              "value": "6.4%",
+              "status": "warn",
+              "note": "Compared with the prior fiscal year.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Revenue growth per year (3-year)",
+              "value": "1.8%",
+              "status": "warn",
+              "note": "Compound annual growth across the years available.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Gross margin trend",
+              "value": "46.9% (change +3.6 pts)",
+              "status": "good",
+              "note": "Rising margins can signal pricing power or scale.",
+              "source": "Annual income statement"
+            }
+          ]
+        },
+        {
+          "id": "profitability",
+          "title": "Profitability and cash",
+          "items": [
+            {
+              "label": "Operating margin",
+              "value": "32.0%",
+              "status": "good",
+              "note": "Profit from operations as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Net margin",
+              "value": "26.9%",
+              "status": "good",
+              "note": "Bottom-line profit as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Free cash flow margin",
+              "value": "23.7%",
+              "status": "good",
+              "note": "Free cash flow: 98.77B.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Return on equity",
+              "value": "151.9%",
+              "status": "good",
+              "note": "How much profit is earned on shareholders' money.",
+              "source": "Annual statements"
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "title": "Balance sheet",
+          "items": [
+            {
+              "label": "Debt to equity",
+              "value": "1.34x",
+              "status": "warn",
+              "note": "Total debt 98.66B vs equity 73.73B.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Net debt",
+              "value": "43.96B",
+              "status": "info",
+              "note": "Negative means more cash than debt. Check debt maturity dates in the 10-K.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Interest coverage",
+              "value": "33.8x",
+              "status": "good",
+              "note": "Operating profit divided by interest cost.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Current ratio",
+              "value": "0.89x",
+              "status": "bad",
+              "note": "Can it cover bills due within a year?",
+              "source": "Annual balance sheet"
+            }
+          ]
+        },
+        {
+          "id": "valuation",
+          "title": "Valuation",
+          "items": [
+            {
+              "label": "P/E (trailing)",
+              "value": "38.6x",
+              "status": "warn",
+              "note": "Compare with competitors and the company's own history.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "P/E (forward)",
+              "value": "35.1x",
+              "status": "warn",
+              "note": "Based on analyst earnings estimates.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to sales",
+              "value": "10.5x",
+              "status": "bad",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "EV/EBITDA",
+              "value": "29.4x",
+              "status": "bad",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "PEG ratio",
+              "value": "2.71x",
+              "status": "warn",
+              "note": "P/E relative to expected growth.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to free cash flow",
+              "value": "49.7x",
+              "status": "warn",
+              "note": "",
+              "source": "Yahoo Finance and cash flow statement"
+            }
+          ]
+        },
+        {
+          "id": "trust",
+          "title": "Trust and red flags",
+          "items": [
+            {
+              "label": "Share count change per year (3-year)",
+              "value": "-2.51%",
+              "status": "good",
+              "note": "Rising share counts dilute existing owners. Falling counts mean buybacks.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Stock-based pay vs revenue",
+              "value": "3.1%",
+              "status": "warn",
+              "note": "Heavy stock pay is a hidden cost to shareholders.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Cash conversion",
+              "value": "1.00x",
+              "status": "warn",
+              "note": "Profit that does not turn into cash can point to aggressive accounting.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Insider buying and selling",
+              "value": "0 purchases, 34 sales",
+              "status": "bad",
+              "note": "Sales are common for pay reasons. Open-market purchases are the stronger signal.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Risks and competition",
+          "items": [
+            {
+              "label": "Beta",
+              "value": "1.07x",
+              "status": "warn",
+              "note": "How much the stock tends to swing compared with the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Competitors, threats, legal issues",
+              "value": "Manual check",
+              "status": "info",
+              "note": "See the manual checks below. Code cannot judge these reliably.",
+              "source": "You"
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "title": "Market behavior",
+          "items": [
+            {
+              "label": "Average daily dollar volume",
+              "value": "15.22B",
+              "status": "good",
+              "note": "Low trading volume makes it harder to buy or sell at a fair price.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Short interest (share of float)",
+              "value": "0.9%",
+              "status": "good",
+              "note": "High short interest means many investors are betting against it.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Institutional ownership",
+              "value": "66.3%",
+              "status": "good",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price vs 200-day average",
+              "value": "15.9%",
+              "status": "good",
+              "note": "Shows the longer-term trend.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "52-week range",
+              "value": "243.42 to 345.34",
+              "status": "info",
+              "note": "Current price 336.64. Be careful buying right after a spike.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Next earnings date",
+              "value": "2026-11-02",
+              "status": "info",
+              "note": "Prices often move sharply on earnings day.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        }
+      ],
+      "manual": [
+        {
+          "q": "Can you explain in one sentence how this company makes money, and who its biggest customers are?",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=AAPL&type=10-K",
+          "link_label": "Latest annual report (SEC EDGAR)"
+        },
+        {
+          "q": "Does it have a real moat: brand, switching costs, network effects, or a cost advantage?",
+          "link": "https://finance.yahoo.com/quote/AAPL/profile",
+          "link_label": "Company profile"
+        },
+        {
+          "q": "Who are the top three competitors, and is this company gaining or losing share?",
+          "link": "https://finance.yahoo.com/quote/AAPL",
+          "link_label": "Quote page"
+        },
+        {
+          "q": "Any lawsuits, regulatory probes, auditor changes, restatements, or CFO departures?",
+          "link": "https://finance.yahoo.com/quote/AAPL/news",
+          "link_label": "Recent news"
+        },
+        {
+          "q": "Has management hit its past guidance? Read the last two earnings calls.",
+          "link": "https://finance.yahoo.com/quote/AAPL/analysis",
+          "link_label": "Analyst estimates"
+        },
+        {
+          "q": "Insider purchases and sales (Form 4 filings).",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=AAPL&type=4",
+          "link_label": "Form 4 filings (SEC EDGAR)"
+        }
+      ]
+    },
+    "MSFT": {
+      "name": "Microsoft Corporation",
+      "currency": "USD",
+      "exchange": "NMS",
+      "price": 535.07,
+      "change_pct": 0.023841870610971982,
+      "summary": "Microsoft Corporation, a technology company, develops and supports a portfolio of technology solutions for individuals and businesses worldwide. Its products include operating systems, server applications, business solution applications, software development tools, desktop and server management tools, and video games; and devices, such as PCs, tablets, gaming and entertainment consoles, other intelligent devices, and related accessories. The company's Productivity and Business Processes segment offers Microsoft 365 Commercial, Enterprise Mobility + Security, Power BI, Exchange, SharePoint, Mic",
+      "as_of": "2026-10-10T01:31+00:00",
+      "sections": [
+        {
+          "id": "business",
+          "title": "Business",
+          "items": [
+            {
+              "label": "Sector and industry",
+              "value": "Technology / Software - Infrastructure",
+              "status": "info",
+              "note": "Read the business summary below and confirm you can explain how it makes money in one sentence.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Market cap",
+              "value": "3.97T",
+              "status": "info",
+              "note": "Company size on the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Employees",
+              "value": "223,000",
+              "status": "info",
+              "note": "",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "growth",
+          "title": "Growth drivers",
+          "items": [
+            {
+              "label": "Revenue growth, latest year",
+              "value": "17.8%",
+              "status": "good",
+              "note": "Compared with the prior fiscal year.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Revenue growth per year (3-year)",
+              "value": "16.1%",
+              "status": "good",
+              "note": "Compound annual growth across the years available.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Gross margin trend",
+              "value": "67.9% (change -1.0 pts)",
+              "status": "warn",
+              "note": "Rising margins can signal pricing power or scale.",
+              "source": "Annual income statement"
+            }
+          ]
+        },
+        {
+          "id": "profitability",
+          "title": "Profitability and cash",
+          "items": [
+            {
+              "label": "Operating margin",
+              "value": "46.8%",
+              "status": "good",
+              "note": "Profit from operations as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Net margin",
+              "value": "40.3%",
+              "status": "good",
+              "note": "Bottom-line profit as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Free cash flow margin",
+              "value": "20.2%",
+              "status": "good",
+              "note": "Free cash flow: 66.99B.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Return on equity",
+              "value": "30.2%",
+              "status": "good",
+              "note": "How much profit is earned on shareholders' money.",
+              "source": "Annual statements"
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "title": "Balance sheet",
+          "items": [
+            {
+              "label": "Debt to equity",
+              "value": "0.13x",
+              "status": "good",
+              "note": "Total debt 56.83B vs equity 442.39B.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Net debt",
+              "value": "-19.82B",
+              "status": "good",
+              "note": "Negative means more cash than debt. Check debt maturity dates in the 10-K.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Interest coverage",
+              "value": "55.4x",
+              "status": "good",
+              "note": "Operating profit divided by interest cost.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Current ratio",
+              "value": "1.23x",
+              "status": "warn",
+              "note": "Can it cover bills due within a year?",
+              "source": "Annual balance sheet"
+            }
+          ]
+        },
+        {
+          "id": "valuation",
+          "title": "Valuation",
+          "items": [
+            {
+              "label": "P/E (trailing)",
+              "value": "29.8x",
+              "status": "warn",
+              "note": "Compare with competitors and the company's own history.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "P/E (forward)",
+              "value": "22.6x",
+              "status": "warn",
+              "note": "Based on analyst earnings estimates.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to sales",
+              "value": "12.0x",
+              "status": "bad",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "EV/EBITDA",
+              "value": "20.5x",
+              "status": "warn",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "PEG ratio",
+              "value": "1.62x",
+              "status": "warn",
+              "note": "P/E relative to expected growth.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to free cash flow",
+              "value": "59.3x",
+              "status": "bad",
+              "note": "",
+              "source": "Yahoo Finance and cash flow statement"
+            }
+          ]
+        },
+        {
+          "id": "trust",
+          "title": "Trust and red flags",
+          "items": [
+            {
+              "label": "Share count change per year (3-year)",
+              "value": "-0.02%",
+              "status": "good",
+              "note": "Rising share counts dilute existing owners. Falling counts mean buybacks.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Stock-based pay vs revenue",
+              "value": "3.7%",
+              "status": "warn",
+              "note": "Heavy stock pay is a hidden cost to shareholders.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Cash conversion",
+              "value": "1.37x",
+              "status": "good",
+              "note": "Profit that does not turn into cash can point to aggressive accounting.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Insider buying and selling",
+              "value": "2 purchases, 27 sales",
+              "status": "bad",
+              "note": "Sales are common for pay reasons. Open-market purchases are the stronger signal.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Risks and competition",
+          "items": [
+            {
+              "label": "Beta",
+              "value": "1.10x",
+              "status": "warn",
+              "note": "How much the stock tends to swing compared with the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Competitors, threats, legal issues",
+              "value": "Manual check",
+              "status": "info",
+              "note": "See the manual checks below. Code cannot judge these reliably.",
+              "source": "You"
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "title": "Market behavior",
+          "items": [
+            {
+              "label": "Average daily dollar volume",
+              "value": "14.81B",
+              "status": "good",
+              "note": "Low trading volume makes it harder to buy or sell at a fair price.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Short interest (share of float)",
+              "value": "0.9%",
+              "status": "good",
+              "note": "High short interest means many investors are betting against it.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Institutional ownership",
+              "value": "75.8%",
+              "status": "good",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price vs 200-day average",
+              "value": "23.4%",
+              "status": "good",
+              "note": "Shows the longer-term trend.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "52-week range",
+              "value": "349.20 to 553.72",
+              "status": "info",
+              "note": "Current price 535.07. Be careful buying right after a spike.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Next earnings date",
+              "value": "2026-10-28",
+              "status": "info",
+              "note": "Prices often move sharply on earnings day.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        }
+      ],
+      "manual": [
+        {
+          "q": "Can you explain in one sentence how this company makes money, and who its biggest customers are?",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=MSFT&type=10-K",
+          "link_label": "Latest annual report (SEC EDGAR)"
+        },
+        {
+          "q": "Does it have a real moat: brand, switching costs, network effects, or a cost advantage?",
+          "link": "https://finance.yahoo.com/quote/MSFT/profile",
+          "link_label": "Company profile"
+        },
+        {
+          "q": "Who are the top three competitors, and is this company gaining or losing share?",
+          "link": "https://finance.yahoo.com/quote/MSFT",
+          "link_label": "Quote page"
+        },
+        {
+          "q": "Any lawsuits, regulatory probes, auditor changes, restatements, or CFO departures?",
+          "link": "https://finance.yahoo.com/quote/MSFT/news",
+          "link_label": "Recent news"
+        },
+        {
+          "q": "Has management hit its past guidance? Read the last two earnings calls.",
+          "link": "https://finance.yahoo.com/quote/MSFT/analysis",
+          "link_label": "Analyst estimates"
+        },
+        {
+          "q": "Insider purchases and sales (Form 4 filings).",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=MSFT&type=4",
+          "link_label": "Form 4 filings (SEC EDGAR)"
+        }
+      ]
+    },
+    "SHOP.TO": {
+      "name": "Shopify Inc.",
+      "currency": "CAD",
+      "exchange": "TOR",
+      "price": 243.83,
+      "change_pct": 0.041163158119475796,
+      "summary": "Shopify Inc., a commerce technology company, provides tools to start, scale, market, and run a business of various sizes in Canada, the United States, Europe, the Middle East, Africa, the Asia Pacific, and Latin America. The Company offers Shopify platform that enables merchants to manage products and inventory, process orders and payments, fulfill and ship orders, build customer relationships, source products, leverage analytics, and reporting and access financing for running their business across all of their sales channels, including web and mobile storefronts, physical retail locations, so",
+      "as_of": "2026-10-10T01:31+00:00",
+      "sections": [
+        {
+          "id": "business",
+          "title": "Business",
+          "items": [
+            {
+              "label": "Sector and industry",
+              "value": "Technology / Software - Application",
+              "status": "info",
+              "note": "Read the business summary below and confirm you can explain how it makes money in one sentence.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Market cap",
+              "value": "313.72B",
+              "status": "info",
+              "note": "Company size on the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Employees",
+              "value": "7,600",
+              "status": "info",
+              "note": "",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "growth",
+          "title": "Growth drivers",
+          "items": [
+            {
+              "label": "Revenue growth, latest year",
+              "value": "30.1%",
+              "status": "good",
+              "note": "Compared with the prior fiscal year.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Revenue growth per year (3-year)",
+              "value": "27.3%",
+              "status": "good",
+              "note": "Compound annual growth across the years available.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Gross margin trend",
+              "value": "48.1% (change -1.1 pts)",
+              "status": "warn",
+              "note": "Rising margins can signal pricing power or scale.",
+              "source": "Annual income statement"
+            }
+          ]
+        },
+        {
+          "id": "profitability",
+          "title": "Profitability and cash",
+          "items": [
+            {
+              "label": "Operating margin",
+              "value": "16.3%",
+              "status": "good",
+              "note": "Profit from operations as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Net margin",
+              "value": "10.7%",
+              "status": "good",
+              "note": "Bottom-line profit as a share of sales.",
+              "source": "Annual income statement"
+            },
+            {
+              "label": "Free cash flow margin",
+              "value": "17.4%",
+              "status": "good",
+              "note": "Free cash flow: 2.01B.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Return on equity",
+              "value": "9.1%",
+              "status": "warn",
+              "note": "How much profit is earned on shareholders' money.",
+              "source": "Annual statements"
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "title": "Balance sheet",
+          "items": [
+            {
+              "label": "Debt to equity",
+              "value": "0.01x",
+              "status": "good",
+              "note": "Total debt 188.00M vs equity 13.47B.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Net debt",
+              "value": "-5.58B",
+              "status": "good",
+              "note": "Negative means more cash than debt. Check debt maturity dates in the 10-K.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Interest coverage",
+              "value": "1639.1x",
+              "status": "good",
+              "note": "Operating profit divided by interest cost.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Current ratio",
+              "value": "5.96x",
+              "status": "good",
+              "note": "Can it cover bills due within a year?",
+              "source": "Annual balance sheet"
+            }
+          ]
+        },
+        {
+          "id": "valuation",
+          "title": "Valuation",
+          "items": [
+            {
+              "label": "P/E (trailing)",
+              "value": "118.9x",
+              "status": "bad",
+              "note": "Compare with competitors and the company's own history.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "P/E (forward)",
+              "value": "70.0x",
+              "status": "bad",
+              "note": "Based on analyst earnings estimates.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to sales",
+              "value": "23.6x",
+              "status": "bad",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "EV/EBITDA",
+              "value": "125.1x",
+              "status": "bad",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "PEG ratio",
+              "value": "1.73x",
+              "status": "warn",
+              "note": "P/E relative to expected growth.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price to free cash flow",
+              "value": "156.3x",
+              "status": "bad",
+              "note": "",
+              "source": "Yahoo Finance and cash flow statement"
+            }
+          ]
+        },
+        {
+          "id": "trust",
+          "title": "Trust and red flags",
+          "items": [
+            {
+              "label": "Share count change per year (3-year)",
+              "value": "0.75%",
+              "status": "warn",
+              "note": "Rising share counts dilute existing owners. Falling counts mean buybacks.",
+              "source": "Annual balance sheet"
+            },
+            {
+              "label": "Stock-based pay vs revenue",
+              "value": "3.9%",
+              "status": "warn",
+              "note": "Heavy stock pay is a hidden cost to shareholders.",
+              "source": "Annual cash flow statement"
+            },
+            {
+              "label": "Cash conversion",
+              "value": "1.65x",
+              "status": "good",
+              "note": "Profit that does not turn into cash can point to aggressive accounting.",
+              "source": "Annual statements"
+            },
+            {
+              "label": "Insider buying and selling",
+              "value": "65 purchases, 0 sales",
+              "status": "good",
+              "note": "Sales are common for pay reasons. Open-market purchases are the stronger signal.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        },
+        {
+          "id": "risks",
+          "title": "Risks and competition",
+          "items": [
+            {
+              "label": "Beta",
+              "value": "2.62x",
+              "status": "bad",
+              "note": "How much the stock tends to swing compared with the market.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Competitors, threats, legal issues",
+              "value": "Manual check",
+              "status": "info",
+              "note": "See the manual checks below. Code cannot judge these reliably.",
+              "source": "You"
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "title": "Market behavior",
+          "items": [
+            {
+              "label": "Average daily dollar volume",
+              "value": "519.26M",
+              "status": "good",
+              "note": "Low trading volume makes it harder to buy or sell at a fair price.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Short interest (share of float)",
+              "value": "0.8%",
+              "status": "good",
+              "note": "High short interest means many investors are betting against it.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Institutional ownership",
+              "value": "73.2%",
+              "status": "good",
+              "note": "",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Price vs 200-day average",
+              "value": "35.9%",
+              "status": "good",
+              "note": "Shows the longer-term trend.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "52-week range",
+              "value": "129.01 to 253.10",
+              "status": "info",
+              "note": "Current price 243.83. Be careful buying right after a spike.",
+              "source": "Yahoo Finance"
+            },
+            {
+              "label": "Next earnings date",
+              "value": "2026-11-03",
+              "status": "info",
+              "note": "Prices often move sharply on earnings day.",
+              "source": "Yahoo Finance"
+            }
+          ]
+        }
+      ],
+      "manual": [
+        {
+          "q": "Can you explain in one sentence how this company makes money, and who its biggest customers are?",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=SHOP&type=10-K",
+          "link_label": "Latest annual report (SEC EDGAR)"
+        },
+        {
+          "q": "Does it have a real moat: brand, switching costs, network effects, or a cost advantage?",
+          "link": "https://finance.yahoo.com/quote/SHOP.TO/profile",
+          "link_label": "Company profile"
+        },
+        {
+          "q": "Who are the top three competitors, and is this company gaining or losing share?",
+          "link": "https://finance.yahoo.com/quote/SHOP.TO",
+          "link_label": "Quote page"
+        },
+        {
+          "q": "Any lawsuits, regulatory probes, auditor changes, restatements, or CFO departures?",
+          "link": "https://finance.yahoo.com/quote/SHOP.TO/news",
+          "link_label": "Recent news"
+        },
+        {
+          "q": "Has management hit its past guidance? Read the last two earnings calls.",
+          "link": "https://finance.yahoo.com/quote/SHOP.TO/analysis",
+          "link_label": "Analyst estimates"
+        },
+        {
+          "q": "Insider purchases and sales (Form 4 filings).",
+          "link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=SHOP&type=4",
+          "link_label": "Form 4 filings (SEC EDGAR)"
+        }
+      ]
+    }
+  }
+}
