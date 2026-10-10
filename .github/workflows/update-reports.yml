@@ -1,0 +1,35 @@
+name: Update reports
+
+on:
+  schedule:
+    - cron: "30 21 * * 1-5"
+  workflow_dispatch: {}
+  push:
+    paths:
+      - "tickers.json"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Build reports
+        run: python scripts/build_reports.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "vantage-bot"
+          git config user.email "vantage-bot@users.noreply.github.com"
+          git add data/reports.json
+          git diff --staged --quiet || (git commit -m "Update reports" && git push)
