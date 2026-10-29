@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T22:02+00:00",
+  "generated_at": "2026-10-29T01:09+00:00",
   "sample": false,
   "assumptions": [
     "Revenue growth per year: 8% or more is strong, below 0% is a concern",
@@ -32,10 +32,10 @@
       "name": "Apple Inc.",
       "currency": "USD",
       "exchange": "NMS",
-      "price": 347.1,
-      "change_pct": 0.009275682591375567,
+      "price": 343.83,
+      "change_pct": -0.009420916162489301,
       "summary": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and wearables, home, and accessories comprising AirPods, Apple Vision Pro, Apple TV, Apple Watch, Beats products, and HomePod, as well as Apple branded and third-party accessories. It also provides AppleCare support and cloud services; and operates various platforms, including the App Store that allows customers to discover and download application",
-      "as_of": "2026-10-27T22:02+00:00",
+      "as_of": "2026-10-29T01:09+00:00",
       "sections": [
         {
           "id": "business",
@@ -50,7 +50,7 @@
             },
             {
               "label": "Market cap",
-              "value": "5.07T",
+              "value": "5.02T",
               "status": "info",
               "note": "Company size on the market.",
               "source": "Yahoo Finance"
@@ -172,14 +172,14 @@
             },
             {
               "label": "P/E (forward)",
-              "value": "36.3x",
+              "value": "36.0x",
               "status": "warn",
               "note": "Based on analyst earnings estimates.",
               "source": "Yahoo Finance"
             },
             {
               "label": "Price to sales",
-              "value": "10.9x",
+              "value": "10.7x",
               "status": "bad",
               "note": "",
               "source": "Yahoo Finance"
@@ -193,14 +193,14 @@
             },
             {
               "label": "PEG ratio",
-              "value": "2.76x",
+              "value": "2.78x",
               "status": "warn",
               "note": "P/E relative to expected growth.",
               "source": "Yahoo Finance"
             },
             {
               "label": "Price to free cash flow",
-              "value": "51.3x",
+              "value": "50.8x",
               "status": "bad",
               "note": "",
               "source": "Yahoo Finance and cash flow statement"
@@ -267,14 +267,14 @@
           "items": [
             {
               "label": "Average daily dollar volume",
-              "value": "15.23B",
+              "value": "15.03B",
               "status": "good",
               "note": "Low trading volume makes it harder to buy or sell at a fair price.",
               "source": "Yahoo Finance"
             },
             {
               "label": "Short interest (share of float)",
-              "value": "0.8%",
+              "value": "0.9%",
               "status": "good",
               "note": "High short interest means many investors are betting against it.",
               "source": "Yahoo Finance"
@@ -288,7 +288,7 @@
             },
             {
               "label": "Price vs 200-day average",
-              "value": "17.7%",
+              "value": "16.4%",
               "status": "good",
               "note": "Shows the longer-term trend.",
               "source": "Yahoo Finance"
@@ -297,7 +297,7 @@
               "label": "52-week range",
               "value": "243.42 to 351.73",
               "status": "info",
-              "note": "Current price 347.10. Be careful buying right after a spike.",
+              "note": "Current price 343.83. Be careful buying right after a spike.",
               "source": "Yahoo Finance"
             },
             {
@@ -347,10 +347,10 @@
       "name": "Microsoft Corporation",
       "currency": "USD",
       "exchange": "NMS",
-      "price": 531.33,
-      "change_pct": -0.0023845287269995685,
+      "price": 531.01,
+      "change_pct": -0.0006022622475675421,
       "summary": "Microsoft Corporation, a technology company, develops and supports a portfolio of technology solutions for individuals and businesses worldwide. Its products include operating systems, server applications, business solution applications, software development tools, desktop and server management tools, and video games; and devices, such as PCs, tablets, gaming and entertainment consoles, other intelligent devices, and related accessories. The company's Productivity and Business Processes segment offers Microsoft 365 Commercial, Enterprise Mobility + Security, Power BI, Exchange, SharePoint, Mic",
-      "as_of": "2026-10-27T22:02+00:00",
+      "as_of": "2026-10-29T01:09+00:00",
       "sections": [
         {
           "id": "business",
@@ -365,7 +365,7 @@
             },
             {
               "label": "Market cap",
-              "value": "3.95T",
+              "value": "3.94T",
               "status": "info",
               "note": "Company size on the market.",
               "source": "Yahoo Finance"
@@ -582,14 +582,14 @@
           "items": [
             {
               "label": "Average daily dollar volume",
-              "value": "13.70B",
+              "value": "13.59B",
               "status": "good",
               "note": "Low trading volume makes it harder to buy or sell at a fair price.",
               "source": "Yahoo Finance"
             },
             {
               "label": "Short interest (share of float)",
-              "value": "0.8%",
+              "value": "0.9%",
               "status": "good",
               "note": "High short interest means many investors are betting against it.",
               "source": "Yahoo Finance"
@@ -603,16 +603,16 @@
             },
             {
               "label": "Price vs 200-day average",
-              "value": "21.6%",
+              "value": "21.5%",
               "status": "good",
               "note": "Shows the longer-term trend.",
               "source": "Yahoo Finance"
             },
             {
               "label": "52-week range",
-              "value": "349.20 to 553.72",
+              "value": "349.20 to 551.15",
               "status": "info",
-              "note": "Current price 531.33. Be careful buying right after a spike.",
+              "note": "Current price 531.01. Be careful buying right after a spike.",
               "source": "Yahoo Finance"
             },
             {
@@ -662,10 +662,10 @@
       "name": "Shopify Inc.",
       "currency": "CAD",
       "exchange": "TOR",
-      "price": 232.93,
-      "change_pct": -0.012715635993726937,
+      "price": 235.47,
+      "change_pct": 0.010904563602799122,
       "summary": "Shopify Inc., a commerce technology company, provides tools to start, scale, market, and run a business of various sizes in Canada, the United States, Europe, the Middle East, Africa, the Asia Pacific, and Latin America. The Company offers Shopify platform that enables merchants to manage products and inventory, process orders and payments, fulfill and ship orders, build customer relationships, source products, leverage analytics, and reporting and access financing for running their business across all of their sales channels, including web and mobile storefronts, physical retail locations, so",
-      "as_of": "2026-10-27T22:02+00:00",
+      "as_of": "2026-10-29T01:09+00:00",
       "sections": [
         {
           "id": "business",
@@ -680,7 +680,7 @@
             },
             {
               "label": "Market cap",
-              "value": "302.26B",
+              "value": "302.97B",
               "status": "info",
               "note": "Company size on the market.",
               "source": "Yahoo Finance"
@@ -795,14 +795,14 @@
           "items": [
             {
               "label": "P/E (trailing)",
-              "value": "113.6x",
+              "value": "114.9x",
               "status": "bad",
               "note": "Compare with competitors and the company's own history.",
               "source": "Yahoo Finance"
             },
             {
               "label": "P/E (forward)",
-              "value": "67.6x",
+              "value": "68.2x",
               "status": "bad",
               "note": "Based on analyst earnings estimates.",
               "source": "Yahoo Finance"
@@ -816,21 +816,21 @@
             },
             {
               "label": "EV/EBITDA",
-              "value": "124.8x",
+              "value": "124.5x",
               "status": "bad",
               "note": "",
               "source": "Yahoo Finance"
             },
             {
               "label": "PEG ratio",
-              "value": "2.37x",
+              "value": "2.32x",
               "status": "warn",
               "note": "P/E relative to expected growth.",
               "source": "Yahoo Finance"
             },
             {
               "label": "Price to free cash flow",
-              "value": "150.6x",
+              "value": "151.0x",
               "status": "bad",
               "note": "",
               "source": "Yahoo Finance and cash flow statement"
@@ -864,7 +864,7 @@
             },
             {
               "label": "Insider buying and selling",
-              "value": "68 purchases, 0 sales",
+              "value": "69 purchases, 0 sales",
               "status": "good",
               "note": "Sales are common for pay reasons. Open-market purchases are the stronger signal.",
               "source": "Yahoo Finance"
@@ -897,7 +897,7 @@
           "items": [
             {
               "label": "Average daily dollar volume",
-              "value": "477.27M",
+              "value": "474.70M",
               "status": "good",
               "note": "Low trading volume makes it harder to buy or sell at a fair price.",
               "source": "Yahoo Finance"
@@ -918,7 +918,7 @@
             },
             {
               "label": "Price vs 200-day average",
-              "value": "29.3%",
+              "value": "30.6%",
               "status": "good",
               "note": "Shows the longer-term trend.",
               "source": "Yahoo Finance"
@@ -927,7 +927,7 @@
               "label": "52-week range",
               "value": "129.01 to 255.95",
               "status": "info",
-              "note": "Current price 232.93. Be careful buying right after a spike.",
+              "note": "Current price 235.47. Be careful buying right after a spike.",
               "source": "Yahoo Finance"
             },
             {
@@ -977,10 +977,10 @@
       "name": "Nebius Group N.V.",
       "currency": "USD",
       "exchange": "NMS",
-      "price": 170.47,
-      "change_pct": 0.11222026489202053,
+      "price": 182.34,
+      "change_pct": 0.06963102012084232,
       "summary": "Nebius Group N.V., a technology company, engages in building full-stack infrastructure to service the global AI industry in the United States, the United Kingdom, and internationally. It offers Nebius builds full-stack infrastructure for AI, including large-scale GPU clusters, cloud platforms, and tools and services for developers. The company also provides TripleTen, an edtech platform for re-skilling individuals for careers in technolgy; and Avride, which develops autonomous driving technology for self-driving cars and delivery robotics. It has a strategic alliance with NVIDIA Corporation to",
-      "as_of": "2026-10-27T22:02+00:00",
+      "as_of": "2026-10-29T01:09+00:00",
       "sections": [
         {
           "id": "business",
@@ -995,7 +995,7 @@
             },
             {
               "label": "Market cap",
-              "value": "46.34B",
+              "value": "46.30B",
               "status": "info",
               "note": "Company size on the market.",
               "source": "Yahoo Finance"
@@ -1110,14 +1110,14 @@
           "items": [
             {
               "label": "P/E (trailing)",
-              "value": "133.2x",
+              "value": "142.5x",
               "status": "bad",
               "note": "Compare with competitors and the company's own history.",
               "source": "Yahoo Finance"
             },
             {
               "label": "P/E (forward)",
-              "value": "-47.4x",
+              "value": "-50.7x",
               "status": "good",
               "note": "Based on analyst earnings estimates.",
               "source": "Yahoo Finance"
@@ -1131,14 +1131,14 @@
             },
             {
               "label": "EV/EBITDA",
-              "value": "171.2x",
+              "value": "202.1x",
               "status": "bad",
               "note": "",
               "source": "Yahoo Finance"
             },
             {
               "label": "PEG ratio",
-              "value": "0.34x",
+              "value": "0.37x",
               "status": "good",
               "note": "P/E relative to expected growth.",
               "source": "Yahoo Finance"
@@ -1179,7 +1179,7 @@
             },
             {
               "label": "Insider buying and selling",
-              "value": "2 purchases, 34 sales",
+              "value": "3 purchases, 34 sales",
               "status": "bad",
               "note": "Sales are common for pay reasons. Open-market purchases are the stronger signal.",
               "source": "Yahoo Finance"
@@ -1212,29 +1212,29 @@
           "items": [
             {
               "label": "Average daily dollar volume",
-              "value": "3.62B",
+              "value": "3.85B",
               "status": "good",
               "note": "Low trading volume makes it harder to buy or sell at a fair price.",
               "source": "Yahoo Finance"
             },
             {
               "label": "Short interest (share of float)",
-              "value": "18.9%",
+              "value": "20.2%",
               "status": "bad",
               "note": "High short interest means many investors are betting against it.",
               "source": "Yahoo Finance"
             },
             {
               "label": "Institutional ownership",
-              "value": "70.1%",
+              "value": "70.2%",
               "status": "good",
               "note": "",
               "source": "Yahoo Finance"
             },
             {
               "label": "Price vs 200-day average",
-              "value": "-3.2%",
-              "status": "warn",
+              "value": "3.3%",
+              "status": "good",
               "note": "Shows the longer-term trend.",
               "source": "Yahoo Finance"
             },
@@ -1242,7 +1242,7 @@
               "label": "52-week range",
               "value": "73.52 to 299.86",
               "status": "info",
-              "note": "Current price 170.47. Be careful buying right after a spike.",
+              "note": "Current price 182.34. Be careful buying right after a spike.",
               "source": "Yahoo Finance"
             },
             {
